@@ -2,7 +2,6 @@ import com.example.Feline;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
@@ -14,9 +13,6 @@ public class FelineTest {
     Random random = new Random();
     private final int expectedKittens = random.nextInt();
 
-    @Spy
-    Feline feline;
-
     @Test
     public void eatMeatTest() throws Exception {
         Feline feline = new Feline();
@@ -25,11 +21,13 @@ public class FelineTest {
 
     @Test
     public void defaultGetKittensTest() {
+        Feline feline = new Feline();
         Assert.assertEquals(1, feline.getKittens());
     }
 
     @Test
     public void getKittensTest() {
+        Feline feline = new Feline();
         Assert.assertEquals(expectedKittens, feline.getKittens(expectedKittens));
     }
 
